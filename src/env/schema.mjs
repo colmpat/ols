@@ -22,6 +22,8 @@ export const serverSchema = z.object({
   DISCORD_CLIENT_SECRET: z.string(),
   GOOGLE_CLIENT_ID: z.string(),
   GOOGLE_CLIENT_SECRET: z.string(),
+  CONTENTFUL_SPACE_ID: z.string(),
+  CONTENTFUL_ACCESS_TOKEN: z.string(),
 });
 
 /**
