@@ -27,13 +27,13 @@ const Images: React.FC = () => {
                     <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">This is where you can edit your images.</p>
                     {images ?
                         (<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8 mt-8">
-                            {images.map((image) => {
-                                return (
+                            {images.map((image) => (
                                     <div key={image.id} className="flex flex-col items-center justify-center w-full h-64 bg-gray-100 rounded-lg shadow-md dark:bg-gray-800">
-                                        <Image src={image.url} fill sizes='50vw' alt={image.id} key={image.id} />
+                                        {/* image component that has width prop with 100% width */}
+                                        <Image width={300} height={300} src={image.url} alt={image.id} key={image.id} />
                                     </div>
                                 )
-                            })}
+                            )}
                         </div>) :
                         (<Loading />)}
                 </div>
