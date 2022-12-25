@@ -47,7 +47,7 @@ const Upload: React.FC = () => {
                     </div>
                     <div className="flex flex-col items-center justify-center flex-1">
                         {/* file input */}
-                        <div className="flex flex-col items-center justify-center flex-1">
+                        <div className="flex flex-col items-center justify-center flex-1 mt-4 mb-4" >
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-200" htmlFor="file">File</label>
                             <input type="file" name="file" id="file" onChange={handleFileChange} className="mt-1" accept="image/*" />
                         </div>
