@@ -40,6 +40,7 @@ const Home: NextPage = () => (
         <div 
           className="bg-white dark:bg-gray-800 h-screen flex flex-col justify-center items-center"
         >
+          <p className="text-4xl font-bold text-gray-900 dark:text-gray-100">Under Construction...</p>
         </div>
       </main>
     </>
