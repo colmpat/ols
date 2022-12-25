@@ -1,4 +1,5 @@
 import Images from "../../components/admin/Images";
+import Upload from "../../components/admin/Upload";
 
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
@@ -133,27 +134,6 @@ const Dashboard: React.FC = () => {
                     <div className="flex flex-col items-center justify-center flex-1">
                         <h2 className="mt-2 text-2xl font-semibold text-gray-900 dark:text-gray-100">Welcome to your dashboard</h2>
                         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">This is where you can manage your images, about page, and contact user interface.</p>
-                    </div>
-                </div>
-            </main>
-        </div>
-    )
-};
-
-// image upload page for image uploads that follows the same tailwindcss styling as the main Admin page
-const Upload: React.FC = () => {
-    return (
-        <div className="flex flex-col flex-1 overflow-hidden">
-            <main className="flex-1 relative z-0 overflow-y-auto focus:outline-none">
-                <div className="flex flex-col items-center justify-center flex-1 h-full p-4">
-                    <div className="flex items-center justify-center flex-shrink-0 w-16 h-16 text-white bg-gray-500 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                        </svg>
-                    </div>
-                    <div className="flex flex-col items-center justify-center flex-1">
-                        <h2 className="mt-2 text-2xl font-semibold text-gray-900 dark:text-gray-100">Welcome to your image upload page</h2>
-                        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">This is where you can upload images.</p>
                     </div>
                 </div>
             </main>

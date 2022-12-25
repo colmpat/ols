@@ -1,16 +1,15 @@
-import { type inferAsyncReturnType } from "@trpc/server";
-import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
-import { createClient, type ContentfulClientApi } from "contentful";
 import { type Session } from "next-auth";
 import { env } from "../../env/server.mjs";
-
+import { type inferAsyncReturnType } from "@trpc/server";
+import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { createClient, type Environment } from "contentful-management";
 import { getServerAuthSession } from "../common/get-server-auth-session";
 
 // CreateContextOptions is the options that createContextInner takes
 // should have a session and a contentful client
 type CreateContextOptions = {
   session: Session | null;
-  client: ContentfulClientApi | null;
+  contentful: Environment | null;
 };
 
 /** Use this helper for:
@@ -21,7 +20,7 @@ type CreateContextOptions = {
 export const createContextInner = async (opts: CreateContextOptions) => {
   return {
     session: opts.session,
-    client: opts.client,
+    contentful: opts.contentful,
   };
 };
 
@@ -37,13 +36,15 @@ export const createContext = async (opts: CreateNextContextOptions) => {
 
   // Create the contentful client
   const client = createClient({
-    space: env.CONTENTFUL_SPACE_ID,
     accessToken: env.CONTENTFUL_ACCESS_TOKEN,
   });
 
+  const space = await client.getSpace(env.CONTENTFUL_SPACE_ID);
+  const contentful = await space.getEnvironment('master');
+
   return await createContextInner({
     session,
-    client,
+    contentful,
   });
 };
 
